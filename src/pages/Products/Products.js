@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 function Products() {
-  return <Container>Products</Container>;
+  return <Container>프리온보딩</Container>;
 }
 
 const Container = styled.div``;
