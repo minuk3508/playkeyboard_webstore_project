@@ -59,10 +59,14 @@ body {
   font-family: 'Alfa Slab One', cursive;
   font-family: 'Noto Sans KR', sans-serif;
   color: ${({ theme }) => theme.colors.black};
+  -ms-overflow-style: none;
 }
 a {
   text-decoration:none;
   color:inherit;
+}
+::-webkit-scrollbar {
+    display: none;
 }
 `;
 function App() {
