@@ -28,11 +28,12 @@ const Container = styled.div`
   position: sticky;
   top: 0;
   width: 100%;
+  padding: 63px 16px 0;
 `;
 
 const LogoBox = styled.div`
   img {
-    width: 140px;
+    width: 136px;
   }
 `;
 
