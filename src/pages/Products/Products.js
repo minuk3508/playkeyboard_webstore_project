@@ -12,7 +12,9 @@ function Products() {
     <>
       <Header />
       <Container>
-        <h2>취향대로 골라보기</h2>
+        <Title>
+          <h2>취향대로 골라보기</h2>
+        </Title>
         <CategoryBox>
           <ul>
             {data?.map((el, index) => {
@@ -43,7 +45,13 @@ const Container = styled.div`
   @media ${theme.device.tabletL} {
     padding: 0 16px;
   }
+`;
+
+const Title = styled.div`
+  display: flex;
+  justify-content: center;
   h2 {
+    width: 1200px;
     padding-top: 5px;
     font-size: 18px;
     font-weight: 700;
@@ -57,17 +65,22 @@ const Container = styled.div`
 
 const CategoryBox = styled.div`
   display: flex;
-  padding: 16px;
+  justify-content: center;
+  padding: 16px 0;
   overflow: scroll;
   overflow: auto;
   white-space: nowrap;
+  ul {
+    width: 1200px;
+  }
 `;
 
 const Category = styled.li`
   display: inline-flex;
   cursor: pointer;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
   line-height: 24px;
   color: #aaabb3;
   margin-right: 20px;
@@ -81,4 +94,8 @@ const Category = styled.li`
       color: #ff417d;
       border-bottom: 1px solid #ff417d;
     `}
+  @media ${theme.device.tabletL} {
+    font-size: 14px;
+    letter-spacing: 0;
+  }
 `;
