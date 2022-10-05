@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import theme from "../../theme";
 
 export default function ThemeList(data) {
   const figuredata = data.data.figure;
@@ -25,8 +26,16 @@ export default function ThemeList(data) {
 }
 
 const ThemeWrap = styled.div`
-  width: 90%;
+  width: 55%;
   height: 100%;
+  @media ${theme.device.tabletL} {
+    width: 80%;
+    height: 100%;
+  }
+  @media ${theme.device.tablet} {
+    width: 90%;
+    height: 100%;
+  }
 `;
 const ThemeListWrap = styled.ul`
   margin: 10px;
