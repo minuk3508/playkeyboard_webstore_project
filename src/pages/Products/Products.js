@@ -17,21 +17,23 @@ function Products() {
           <h2>취향대로 골라보기</h2>
         </Title>
         <CategoryBox>
-          <ul>
-            {data?.map((el, index) => {
-              return (
-                <Category
-                  selected={category === el}
-                  key={index + ''}
-                  onClick={() => {
-                    setCategory(el);
-                  }}
-                >
-                  {el}
-                </Category>
-              );
-            })}
-          </ul>
+          <CategoryWrap>
+            <ul>
+              {data?.map((el, index) => {
+                return (
+                  <Category
+                    selected={category === el}
+                    key={index + ''}
+                    onClick={() => {
+                      setCategory(el);
+                    }}
+                  >
+                    {el}
+                  </Category>
+                );
+              })}
+            </ul>
+          </CategoryWrap>
         </CategoryBox>
         <ProductList category={category} />
       </Container>
@@ -64,17 +66,17 @@ const Title = styled.div`
     }
   }
 `;
-
 const CategoryBox = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+const CategoryWrap = styled.div`
   padding: 16px 0;
   overflow: scroll;
   overflow: auto;
   white-space: nowrap;
-  ul {
-    width: 1200px;
-  }
+  width: 1200px;
 `;
 
 const Category = styled.li`
