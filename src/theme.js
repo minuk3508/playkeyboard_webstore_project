@@ -4,7 +4,6 @@ const fontWeight = {
   bold: "700",
   black: "900",
 };
-
 const colors = {
   black: "#2D2D2D",
   black_2: "#42444C",
@@ -12,8 +11,9 @@ const colors = {
   hotPink: "#FF1C7C",
   pink: "#FF417D",
   gray: "#AAABB3",
+  grayFontColor: "#919299",
+  grayLineColor: "#F2F3F7",
 };
-
 const device = {
   mobile: `only screen and (max-width: 450px)`,
   tablet: `only screen and (max-width: 768px)`,
