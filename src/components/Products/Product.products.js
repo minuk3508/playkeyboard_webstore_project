@@ -35,7 +35,6 @@ function Product({ keyboard }) {
 }
 
 const KeyboardWrapper = styled.div`
-  //손소희
   width: 25%;
   margin: 10px 0;
   padding: 0 10px;

@@ -9,6 +9,7 @@ import theme from '../../theme';
 function Products() {
   const { data } = useFetchCategoryData();
   const [category, setCategory] = useState('Free');
+
   return (
     <>
       <Header />
@@ -67,7 +68,15 @@ const Title = styled.div`
       font-weight: 700;
     }
   }
+  ${(props) =>
+    props.selected &&
+    css`
+      font-weight: 700;
+      color: #ff417d;
+      border-bottom: 1px solid #ff417d;
+    `}
 `;
+
 const CategoryBox = styled.div`
   display: flex;
   justify-content: center;

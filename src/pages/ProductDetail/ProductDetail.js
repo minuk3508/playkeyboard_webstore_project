@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import BottomSection from "./BottomSection";
 
 const detailDataInterface = {
   data: {
@@ -78,7 +79,6 @@ function ProductDetail() {
     (async () => {
       const res = await fetch(`https://api.plkey.app/theme/${id}`);
       const json = await res.json();
-      console.log(json);
       setData(json);
     })();
   }, []);
@@ -94,15 +94,13 @@ function ProductDetail() {
       </TopWrapper>
       {true && <MiddleWrapper>middle</MiddleWrapper>}
       <BottomWrapper>
-        <UserPreferenceWrapper>UserPreference</UserPreferenceWrapper>
-        <ProductInquiryButtonWrapper>
-          ProductInquiry
-        </ProductInquiryButtonWrapper>
-        <PurchaseButtonWrapper>Purchase</PurchaseButtonWrapper>
+        <BottomSection />
       </BottomWrapper>
     </Container>
   );
 }
+
+export default ProductDetail;
 
 const Container = styled.div`
   position: relative;
@@ -111,6 +109,7 @@ const Container = styled.div`
   align-items: center;
   overflow: hidden;
   width: 100vw;
+  padding-top: 10%;
   height: auto;
   min-height: 100vh;
 `;
@@ -176,7 +175,6 @@ const MiddleWrapper = styled.div`
   align-items: center;
   width: 100vw;
   height: 50vw;
-  border: 1px solid black;
 `;
 const BottomWrapper = styled.div`
   display: flex;
@@ -186,35 +184,4 @@ const BottomWrapper = styled.div`
   width: 100vw;
   height: 33%;
   min-height: 33vh;
-  padding: 0% 1%;
-  border: 1px solid black;
 `;
-const UserPreferenceWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 8rem;
-  border: 1px solid black;
-  background-color: rgba(82, 82, 82, 0.2);
-`;
-const ProductInquiryButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 5rem;
-  border: 1px solid black;
-  background-color: rgba(24, 204, 240, 0.2);
-`;
-const PurchaseButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 5rem;
-  border: 1px solid black;
-  background-color: rgba(252, 173, 0, 0.2);
-`;
-
-export default ProductDetail;
