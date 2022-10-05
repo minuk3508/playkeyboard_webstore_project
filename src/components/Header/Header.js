@@ -1,6 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-
+import React from "react";
+import styled from "styled-components";
+import playKeyboardLogo from "../../images/playKeyboardLogo.png";
+import search from "../../images/search.png";
+import theme from "../../theme";
 function Header() {
   return (
     <Container>
