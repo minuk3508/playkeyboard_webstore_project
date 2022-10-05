@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
-import Header from '../../components/Header/Header';
-import ProductList from '../../components/Products/ProductList.products';
-import useFetchCategoryData from '../../hooks/useFetchCategoryData.hooks';
-import Footer from '../../components/Footer/Footer';
-import theme from '../../theme';
+import React, { useState } from "react";
+import styled, { css } from "styled-components";
+import Header from "../../components/Header/Header";
+import ProductList from "../../components/Products/ProductList.products";
+import useFetchCategoryData from "../../hooks/useFetchCategoryData.hooks";
+import Footer from "../../components/Footer/Footer";
+import theme from "../../theme";
 
 function Products() {
   const { data } = useFetchCategoryData();
-  const [category, setCategory] = useState('Free');
+  const [category, setCategory] = useState("Free");
 
   return (
     <>
@@ -24,7 +24,7 @@ function Products() {
                 return (
                   <Category
                     selected={category === el}
-                    key={index + ''}
+                    key={index + ""}
                     onClick={() => {
                       setCategory(el);
                     }}
