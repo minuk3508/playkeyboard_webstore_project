@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProductDetailTop from "../../components/ProductDetailTop/ProductDetailTop";
+import Keyboard from "components/Keyboard";
 import styled from "styled-components";
 import BottomSection from "./BottomSection";
 import ThemeList from "./ThemeList";
@@ -74,6 +75,7 @@ const detailDataInterface = {
 
 function ProductDetail() {
   const [data, setData] = useState(detailDataInterface);
+  const [isModal, setIsModal] = useState(false);
   const mockParams = { id: "6" };
   const { id } = mockParams;
 
@@ -88,7 +90,7 @@ function ProductDetail() {
 
   return (
     <Container>
-      <ProductDetailTop data={data} />
+      <ProductDetailTop data={data} isModal={() => setIsModal(!isModal)} />
       {data.figure && (
         <MiddleWrapper>
           <ThemeList data={data} />
@@ -97,6 +99,7 @@ function ProductDetail() {
       <BottomWrapper>
         <BottomSection />
       </BottomWrapper>
+      {isModal && <Keyboard isModal={() => setIsModal(!isModal)} />}
     </Container>
   );
 }
