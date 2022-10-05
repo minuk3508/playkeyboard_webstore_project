@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import Header from '../../components/Header/Header';
 import ProductList from '../../components/Products/ProductList.products';
 import useFetchCategoryData from '../../hooks/useFetchCategoryData.hooks';
+import Footer from '../../components/Footer/Footer';
 import theme from '../../theme';
 
 function Products() {
@@ -34,6 +35,7 @@ function Products() {
         </CategoryBox>
         <ProductList category={category} />
       </Container>
+      <Footer />
     </>
   );
 }

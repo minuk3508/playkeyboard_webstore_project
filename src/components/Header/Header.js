@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import playKeyboardLogo from '../../images/playKeyboardLogo.png';
 import search from '../../images/search.png';
+import store from '../../images/store.png';
+import charging from '../../images/charging.png';
+import heart from '../../images/heart.png';
+import settings from '../../images/settings.png';
 import theme from '../../theme';
 
 function Header() {
@@ -12,8 +16,17 @@ function Header() {
           <img src={playKeyboardLogo} alt="playKeyboardLogo" />
         </LogoBox>
         <SearchBox>
+          <div>
+            <input />
+          </div>
           <img src={search} alt="search" />
         </SearchBox>
+        <MenuBox>
+          <img src={store} alt="store" />
+          <img src={charging} alt="charging" />
+          <img src={heart} alt="heart" />
+          <img src={settings} alt="settings" />
+        </MenuBox>
       </HeaderBox>
     </Container>
   );
@@ -30,7 +43,7 @@ const Container = styled.div`
   background-color: white;
   box-shadow: 0 2px 6px 0 rgb(0 0 0 / 6%);
   @media ${theme.device.tabletL} {
-    padding: 63px 16px 0;
+    padding: 63px 16px 5px;
     box-shadow: 0 2px 6px 0 rgb(0 0 0 / 0%);
   }
 `;
@@ -52,7 +65,42 @@ const LogoBox = styled.div`
   }
 `;
 
+const MenuBox = styled.div`
+  cursor: pointer;
+  /* margin-left: 50%; */
+  img {
+    margin: 0 10px;
+    width: 25px;
+  }
+  @media ${theme.device.tabletL} {
+    display: none;
+  }
+`;
+
 const SearchBox = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  div {
+    border-radius: 5px;
+    padding: 5px;
+    width: 250px;
+    background-color: #f2f2f2;
+    margin-right: 10px;
+    input:focus {
+      outline: none;
+    }
+    @media ${theme.device.tabletL} {
+      display: none;
+    }
+    input {
+      padding-left: 10px;
+      border: none;
+      width: 240px;
+      height: 20px;
+      background-color: #f2f2f2;
+    }
+  }
   img {
     width: 25px;
     @media ${theme.device.tabletL} {
