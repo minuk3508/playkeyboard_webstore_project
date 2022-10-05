@@ -1,7 +1,7 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Products from '../pages/Products/Products';
-import ProductDetail from '../pages/ProductDetail/ProductDetail';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Products from "./Products/Products";
+import ProductDetail from "./ProductDetail/ProductDetail";
 
 function App() {
   return (

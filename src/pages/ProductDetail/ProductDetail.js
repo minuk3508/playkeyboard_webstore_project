@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ProductDetailTop from "../../components/ProductDetailTop/ProductDetailTop";
 import styled from "styled-components";
 
 const detailDataInterface = {
@@ -74,24 +75,19 @@ function ProductDetail() {
   const [data, setData] = useState(detailDataInterface);
   const mockParams = { id: "6" };
   const { id } = mockParams;
+
   useEffect(() => {
     (async () => {
       const res = await fetch(`https://api.plkey.app/theme/${id}`);
       const json = await res.json();
-      console.log(json);
-      setData(json);
+      setData(json.data);
+      // 주석 : props로 내려줄 때 에러가 자꾸 나서 state 저장할 때 처음부터 data로 접근하여 저장하였습니다.
     })();
   }, []);
-  console.log(data);
+
   return (
     <Container>
-      <TopWrapper>
-        <PageBackWrapper>back</PageBackWrapper>
-        <ItemImageScreenWrapper>img</ItemImageScreenWrapper>
-        <ItemNameWrapper>name</ItemNameWrapper>
-        <TagButttonWrapper>tag</TagButttonWrapper>
-        <ADSpaceWrapper>ad</ADSpaceWrapper>
-      </TopWrapper>
+      <ProductDetailTop data={data} />
       {true && <MiddleWrapper>middle</MiddleWrapper>}
       <BottomWrapper>
         <UserPreferenceWrapper>UserPreference</UserPreferenceWrapper>
@@ -113,62 +109,6 @@ const Container = styled.div`
   width: 100vw;
   height: auto;
   min-height: 100vh;
-`;
-const TopWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  height: 67%;
-  min-height: 67vh;
-  padding: 2% 1%;
-  border: 1px solid black;
-`;
-const PageBackWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 3rem;
-  border: 1px solid black;
-  background-color: rgba(235, 64, 52, 0.2);
-`;
-const ItemImageScreenWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 20rem;
-  border: 1px solid black;
-  background-color: rgba(128, 76, 212, 0.2);
-`;
-const ItemNameWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 5rem;
-  border: 1px solid black;
-  background-color: rgba(71, 158, 75, 0.2);
-`;
-const TagButttonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 3rem;
-  border: 1px solid black;
-  background-color: rgba(204, 198, 90, 0.2);
-`;
-const ADSpaceWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 4rem;
-  border: 1px solid black;
-  background-color: rgba(75, 84, 184, 0.2);
 `;
 const MiddleWrapper = styled.div`
   display: flex;
