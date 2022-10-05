@@ -55,12 +55,13 @@ const KeyboardImg = styled.img`
   width: 100%;
   border-radius: 8px;
   margin-bottom: 8px;
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 15%);
 `;
 const KeyboardName = styled.h1`
-  font-weight: 500;
   font-size: 14px;
   line-height: 20px;
-  color: #42444c;
+  font-weight: ${({ theme }) => theme.fontWeight.regular_2};
+  color: ${({ theme }) => theme.colors.black_2};
 `;
 const FiguresWrapper = styled.div`
   display: flex;
@@ -74,10 +75,10 @@ const DownloadWrapper = styled.div`
     margin-right: 3px;
   }
   span {
-    font-weight: 500;
     font-size: 12px;
     line-height: 18px;
-    color: #aaabb3;
+    font-weight: ${({ theme }) => theme.fontWeight.regular_2};
+    color: ${({ theme }) => theme.colors.gray};
   }
   display: flex;
   align-items: center;
@@ -90,7 +91,8 @@ const PriceWrapper = styled.div`
     font-weight: 500;
     font-size: 12px;
     line-height: 18px;
-    color: #7dc9fc;
+    font-weight: ${({ theme }) => theme.fontWeight.regular_2};
+    color: ${({ theme }) => theme.colors.blue};
   }
   display: flex;
   align-items: center;

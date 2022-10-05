@@ -39,11 +39,11 @@ function Footer() {
 const Container = styled.div`
   display: none;
   justify-content: center;
-  background-color: white;
   position: sticky;
   bottom: 0;
   left: 0;
   width: 100%;
+  background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0 2px 6px 0 rgb(0 0 0 / 20%);
   @media ${theme.device.tabletL} {
     display: flex;
@@ -56,6 +56,9 @@ const FooterBox = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 1200px;
+  @media ${theme.device.tabletL} {
+    width: 500px;
+  }
 `;
 
 const IconBox = styled.div`
@@ -68,9 +71,9 @@ const IconBox = styled.div`
     padding-bottom: 3px;
   }
   span {
-    font-weight: 500;
     font-size: 10px;
-    color: #919299;
+    font-weight: ${({ theme }) => theme.fontWeight.regular_2};
+    color: ${({ theme }) => theme.colors.grayFontColor};
   }
 `;
 
