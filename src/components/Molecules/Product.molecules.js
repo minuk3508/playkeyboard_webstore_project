@@ -50,7 +50,6 @@ const KeyboardWrapper = styled.div`
     padding: 0 8px;
   }
 `;
-
 const KeyboardImg = styled.img`
   width: 100%;
   border-radius: 8px;
