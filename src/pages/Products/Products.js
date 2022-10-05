@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Header from '../../components/Header/Header';
 import ProductList from '../../components/Products/ProductList.products';
-import useFetchCategoryData from '../../hooks/useFetchCategoryData.hooks';
+import useFetchCategoryData from '../../hooks/useFetchCategoryData.hook';
 import Footer from '../../components/Footer/Footer';
 import theme from '../../theme';
 
@@ -61,22 +61,13 @@ const Title = styled.div`
     width: 1200px;
     padding-top: 5px;
     font-size: 18px;
-    font-weight: 700;
-    color: #42444c;
+    font-weight: ${({ theme }) => theme.fontWeight.bold};
+    color: ${({ theme }) => theme.colors.black_2};
     @media ${theme.device.tabletL} {
       font-size: 16px;
-      font-weight: 700;
     }
   }
-  ${(props) =>
-    props.selected &&
-    css`
-      font-weight: 700;
-      color: #ff417d;
-      border-bottom: 1px solid #ff417d;
-    `}
 `;
-
 const CategoryBox = styled.div`
   display: flex;
   justify-content: center;
@@ -93,21 +84,21 @@ const CategoryWrap = styled.div`
 const Category = styled.li`
   display: inline-flex;
   cursor: pointer;
-  font-weight: 400;
-  font-size: 16px;
   letter-spacing: 0.5px;
   line-height: 24px;
-  color: #aaabb3;
   margin-right: 20px;
+  font-size: 16px;
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
+  color: ${({ theme }) => theme.colors.gray};
   &:last-child {
     margin-right: 0px;
   }
   ${(props) =>
     props.selected &&
     css`
-      font-weight: 700;
-      color: #ff417d;
-      border-bottom: 1px solid #ff417d;
+      font-weight: ${({ theme }) => theme.fontWeight.bold};
+      color: ${({ theme }) => theme.colors.pink};
+      border-bottom: 1px solid ${({ theme }) => theme.colors.pink};
     `}
   @media ${theme.device.tabletL} {
     font-size: 14px;
