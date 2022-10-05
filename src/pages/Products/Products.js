@@ -35,7 +35,9 @@ function Products() {
             </ul>
           </CategoryWrap>
         </CategoryBox>
-        <ProductList category={category} />
+        <ProductListBox>
+          <ProductList category={category} />
+        </ProductListBox>
       </Container>
       <Footer />
     </>
@@ -102,4 +104,9 @@ const Category = styled.li`
     font-size: 14px;
     letter-spacing: 0;
   }
+`;
+
+const ProductListBox = styled.div`
+  display: flex;
+  justify-content: center;
 `;

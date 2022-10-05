@@ -4,6 +4,7 @@ import Product from './Product.products';
 
 function ProductList({ category }) {
   const { data } = useFetchProductList(category);
+
   return (
     <Container>
       {data?.map((el) => (
@@ -15,8 +16,7 @@ function ProductList({ category }) {
 export default ProductList;
 
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  padding: 0px 15px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
 `;

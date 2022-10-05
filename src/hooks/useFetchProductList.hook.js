@@ -7,8 +7,8 @@ function useFetchProductList(category) {
       method: 'GET',
     })
       .then((res) => res.json())
-      .then((data) => {
-        setThemeData(data);
+      .then((newData) => {
+        setThemeData(newData);
       });
   }, [category]);
 
