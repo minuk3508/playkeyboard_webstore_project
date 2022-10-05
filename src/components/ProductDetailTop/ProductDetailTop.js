@@ -46,7 +46,6 @@ const ProductDetailTop = ({ data }) => {
     </TopWrapper>
   );
 };
-
 const TopWrapper = styled.div`
   display: flex;
   flex-direction: column;
