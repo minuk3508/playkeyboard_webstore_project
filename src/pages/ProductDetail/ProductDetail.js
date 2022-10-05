@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductDetailTop from "../../components/ProductDetailTop/ProductDetailTop";
 import styled from "styled-components";
 import BottomSection from "./BottomSection";
-
+import ThemeList from "./ThemeList";
 const detailDataInterface = {
   data: {
     bannerEvent: String,
@@ -89,7 +89,11 @@ function ProductDetail() {
   return (
     <Container>
       <ProductDetailTop data={data} />
-      {true && <MiddleWrapper>middle</MiddleWrapper>}
+      {data.figure && (
+        <MiddleWrapper>
+          <ThemeList data={data} />
+        </MiddleWrapper>
+      )}
       <BottomWrapper>
         <BottomSection />
       </BottomWrapper>
@@ -115,7 +119,7 @@ const MiddleWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 50vw;
+  height: 100%;
 `;
 const BottomWrapper = styled.div`
   display: flex;
