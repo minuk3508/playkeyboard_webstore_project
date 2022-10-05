@@ -40,8 +40,8 @@ const Container = styled.div`
   top: 0;
   width: 100%;
   padding: 50px 50px 10px;
-  background-color: white;
   box-shadow: 0 2px 6px 0 rgb(0 0 0 / 6%);
+  background-color: ${({ theme }) => theme.colors.white};
   @media ${theme.device.tabletL} {
     padding: 63px 16px 5px;
     box-shadow: 0 2px 6px 0 rgb(0 0 0 / 0%);
@@ -67,7 +67,6 @@ const LogoBox = styled.div`
 
 const MenuBox = styled.div`
   cursor: pointer;
-  /* margin-left: 50%; */
   img {
     margin: 0 10px;
     width: 25px;

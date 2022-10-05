@@ -5,7 +5,6 @@ function useFetchCategoryData() {
   useEffect(() => {
     fetch('https://api.plkey.app/theme/category', {
       method: 'GET',
-
     })
       .then((res) => res.json())
       .then((data) => {

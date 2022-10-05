@@ -35,10 +35,10 @@ const Wrapper = styled.ul`
   display: flex;
 `;
 const HashTag = styled.li`
-  font-weight: 400;
   font-size: 12px;
   line-height: 18px;
-  color: #aaabb3;
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
+  color: ${({ theme }) => theme.colors.gray};
   & + & {
     margin-left: 2px;
   }
