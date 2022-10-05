@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import playKeyboardLogo from '../../images/playKeyboardLogo.png';
-import search from '../../images/search.png';
-import store from '../../images/store.png';
-import charging from '../../images/charging.png';
-import heart from '../../images/heart.png';
-import settings from '../../images/settings.png';
-import theme from '../../theme';
+import React from "react";
+import styled from "styled-components";
+import playKeyboardLogo from "../../images/playKeyboardLogo.png";
+import search from "../../images/search.png";
+import store from "../../images/store.png";
+import charging from "../../images/charging.png";
+import heart from "../../images/heart.png";
+import settings from "../../images/settings.png";
+import theme from "../../theme";
 
 function Header() {
   return (
@@ -40,11 +40,9 @@ const Container = styled.div`
   top: 0;
   width: 100%;
   padding: 50px 50px 10px;
-  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 6%);
   background-color: ${({ theme }) => theme.colors.white};
-  @media ${theme.device.tabletL} {
+  @media ${({ theme }) => theme.device.tabletL} {
     padding: 63px 16px 5px;
-    box-shadow: 0 2px 6px 0 rgb(0 0 0 / 0%);
   }
 `;
 

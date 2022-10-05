@@ -10,7 +10,7 @@ const ProductDetailTop = ({ data, isModal }) => {
   }
 
   return (
-    <TopWrapper>
+    <>
       <PageBackWrapper>
         <BackBtn onClick={goBack}>
           <BackBtnImg alt="뒤로가기" src="/images/ic_all_back.png" />
@@ -43,21 +43,10 @@ const ProductDetailTop = ({ data, isModal }) => {
           })}
       </TagButttonWrapper>
       <ADSpaceWrapper>AD</ADSpaceWrapper>
-    </TopWrapper>
+    </>
   );
 };
 
-const TopWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  max-width: 720px;
-  height: 67%;
-  min-height: 67vh;
-  padding: 2% 1%;
-`;
 const PageBackWrapper = styled.div`
   display: flex;
   align-items: center;

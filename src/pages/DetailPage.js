@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import ProductDetailTop from "../../components/ProductDetailTop/ProductDetailTop";
-import Keyboard from "components/Keyboard";
-import styled from "styled-components";
-import BottomSection from "./BottomSection";
-import ThemeList from "./ThemeList";
+import DetailTemplate from "Template/DetailTemplate";
+import ThemeList from "components/Organism/DetailThemeList.organism";
+import BottomSection from "components/Organism/DetailBottomSection.organims";
+import ProductDetailTop from "components/Organism/DetailTopSection.organism";
+import Keyboard from "components/Organism/Keyboard.organism";
+
 const detailDataInterface = {
   data: {
     bannerEvent: String,
@@ -73,7 +74,7 @@ const detailDataInterface = {
   },
 };
 
-function ProductDetail() {
+function DetailPage() {
   const [data, setData] = useState(detailDataInterface);
   const [isModal, setIsModal] = useState(false);
   const mockParams = { id: "6" };
@@ -84,52 +85,24 @@ function ProductDetail() {
       const res = await fetch(`https://api.plkey.app/theme/${id}`);
       const json = await res.json();
       setData(json.data);
-      // 주석 : props로 내려줄 때 에러가 자꾸 나서 state 저장할 때 처음부터 data로 접근하여 저장하였습니다.
     })();
   }, []);
 
+  const modalToggleFuntion = () => {
+    setIsModal((prev) => !prev);
+  };
+
   return (
-    <Container>
-      <ProductDetailTop data={data} isModal={() => setIsModal(!isModal)} />
-      {data.figure && (
-        <MiddleWrapper>
-          <ThemeList data={data} />
-        </MiddleWrapper>
-      )}
-      <BottomWrapper>
-        <BottomSection />
-      </BottomWrapper>
-      {isModal && <Keyboard isModal={() => setIsModal(!isModal)} />}
-    </Container>
+    <DetailTemplate
+      topSectionComponent={
+        <ProductDetailTop data={data} isModal={modalToggleFuntion} />
+      }
+      middleSectionComponent={<ThemeList data={data} />}
+      bottomSectionComponet={<BottomSection />}
+      modalComponent={<Keyboard isModal={modalToggleFuntion} />}
+      modalValue={isModal}
+    />
   );
 }
 
-export default ProductDetail;
-
-const Container = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-  width: 100vw;
-  padding-top: 10%;
-  height: auto;
-  min-height: 100vh;
-`;
-const MiddleWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100%;
-`;
-const BottomWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100vw;
-  height: 33%;
-  min-height: 33vh;
-`;
+export default DetailPage;
