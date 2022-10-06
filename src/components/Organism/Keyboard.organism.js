@@ -49,6 +49,13 @@ const Keyboard = ({ state, isModal }) => {
     return setCollection(newCollection);
   };
 
+  const handleWindow = (e) => {
+    const clicked = e.target.closest('.modal');
+    if (clicked === null) {
+      isModal((prev) => !prev);
+    }
+  };
+
   useEffect(() => {
     const CheckState = () => {
       state ? setIsOpen(true) : setTimeout(() => setIsOpen(false), 500);
@@ -62,8 +69,8 @@ const Keyboard = ({ state, isModal }) => {
   if (!isOpen) return null;
 
   return (
-    <Overlay>
-      <Wapper toggle={state ? 'fadeIn' : 'fadeOut'}>
+    <Overlay onClick={handleWindow}>
+      <Wapper toggle={state ? 'fadeIn' : 'fadeOut'} className='modal'>
         <TestWapper>
           <TestBox>
             <input
