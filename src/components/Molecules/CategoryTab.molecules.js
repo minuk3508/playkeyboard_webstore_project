@@ -1,19 +1,19 @@
-import styled, { css } from "styled-components";
-import { useState } from "react";
+import styled, { css } from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
-function CategoryTap({ data, giveMeSelectedCategory }) {
-  const [category, setCategory] = useState("Free");
+function CategoryTap({ data, selectedCategory }) {
+  const navigate = useNavigate();
+
   return (
     <CategoryBox>
       <ul>
-        {data?.map((el, index) => {
+        {data?.slice(1).map((el, index) => {
           return (
             <Category
-              selected={category === el}
-              key={index + ""}
+              selected={selectedCategory === el}
+              key={index}
               onClick={() => {
-                setCategory(el);
-                giveMeSelectedCategory(el);
+                navigate(`/?category=${el}`);
               }}
             >
               {el}
