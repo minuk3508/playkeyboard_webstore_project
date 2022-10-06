@@ -150,6 +150,6 @@ const Container = styled.div`
 
 - ##### 📍Task [내용보기!]()
 
-- ##### 📍Design pattern(Atomic Design) [내용보기!]()
+- ##### 📍Conventions [내용보기!]()
 
 
