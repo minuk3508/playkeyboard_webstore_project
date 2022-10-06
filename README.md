@@ -147,12 +147,9 @@ const Container = styled.div`
 <br/>
 
 - ##### 📍Meeting Log [내용보기!]()
-<br/>
 
 - ##### 📍Task [내용보기!]()
-<br/>
 
 - ##### 📍Design pattern(Atomic Design) [내용보기!]()
-<br/>
 
 
