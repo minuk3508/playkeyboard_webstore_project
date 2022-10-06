@@ -1,22 +1,22 @@
-import { useState, useEffect } from "react";
-import styled from "styled-components";
-import arrow_left from "images/arrow_left.png";
+import { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import arrow_left from 'images/arrow_left.png';
 
 const Keyboard = ({ state, isModal }) => {
   const [value, setValue] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isShift, setIsShift] = useState(false);
   const [collection, setCollection] = useState(COLLECTION_DATA);
-  const Hangul = require("hangul-js");
+  const Hangul = require('hangul-js');
 
   const handleClick = (event) => {
     const item = event.target.textContent;
 
-    if (item === "Shift") {
+    if (item === 'Shift') {
       return handleShift();
     }
 
-    if (item === "Back") {
+    if (item === 'Back') {
       return handleDelete();
     }
 
@@ -24,6 +24,9 @@ const Keyboard = ({ state, isModal }) => {
   };
 
   const handleCreate = (item) => {
+    if (item === 'Enter') {
+      return setValue((prev) => [...prev, ' ']);
+    }
     setValue((prev) => [...prev, item]);
   };
 
@@ -34,22 +37,6 @@ const Keyboard = ({ state, isModal }) => {
   const handleAllDelete = () => {
     setValue([]);
   };
-
-  useEffect(() => {
-    const CheckState = () => {
-      if (state) {
-        setIsOpen(true);
-      } else {
-        setTimeout(() => setIsOpen(false), 500);
-      }
-    };
-    CheckState();
-    return () => {
-      clearTimeout(CheckState);
-    };
-  }, [state]);
-
-  if (!isOpen) return null;
 
   const handleShift = () => {
     setIsShift(() => !isShift);
@@ -62,18 +49,31 @@ const Keyboard = ({ state, isModal }) => {
     return setCollection(newCollection);
   };
 
+  useEffect(() => {
+    const CheckState = () => {
+      state ? setIsOpen(true) : setTimeout(() => setIsOpen(false), 500);
+    };
+    CheckState();
+    return () => {
+      clearTimeout(CheckState);
+    };
+  }, [state]);
+
+  if (!isOpen) return null;
+
   return (
     <Overlay>
-      <Wapper toggle={state ? "fadeIn" : "fadeOut"}>
+      <Wapper toggle={state ? 'fadeIn' : 'fadeOut'}>
         <TestWapper>
           <TestBox>
             <input
-              type="text"
+              type='text'
               defaultValue={Hangul.assemble(value)}
-              placeholder="마음껏 테스트 해보세요"
+              placeholder='마음껏 테스트 해보세요'
+              disabled='true'
             />
             <BackArrow onClick={isModal}>
-              <img src={arrow_left} alt="playKeyboardLogo" />
+              <img src={arrow_left} alt='playKeyboardLogo' />
             </BackArrow>
             <AllDeleteX onClick={handleAllDelete}>✕</AllDeleteX>
           </TestBox>
@@ -164,6 +164,7 @@ const TestBox = styled.div`
   background-color: #eeeef3;
 
   input {
+    width: 100%;
     border: none;
     background-color: inherit;
     :focus {
@@ -222,10 +223,10 @@ const KeyLi = styled.li`
 `;
 
 const COLLECTION_DATA = [
-  ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
-  ["ㅂ", "ㅈ", "ㄷ", "ㄱ", "ㅅ", "ㅛ", "ㅕ", "ㅑ", "ㅐ", "ㅔ"],
-  ["ㅁ", "ㄴ", "ㅇ", "ㄹ", "ㅎ", "ㅗ", "ㅓ", "ㅏ", "ㅣ"],
-  ["Shift", "ㅋ", "ㅌ", "ㅊ", "ㅍ", "ㅠ", "ㅜ", "ㅡ", "Back"],
+  ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
+  ['ㅂ', 'ㅈ', 'ㄷ', 'ㄱ', 'ㅅ', 'ㅛ', 'ㅕ', 'ㅑ', 'ㅐ', 'ㅔ'],
+  ['ㅁ', 'ㄴ', 'ㅇ', 'ㄹ', 'ㅎ', 'ㅗ', 'ㅓ', 'ㅏ', 'ㅣ', 'Enter'],
+  ['Shift', 'ㅋ', 'ㅌ', 'ㅊ', 'ㅍ', 'ㅠ', 'ㅜ', 'ㅡ', 'Back'],
 ];
-const nomal = ["ㅂ", "ㅈ", "ㄷ", "ㄱ", "ㅅ", "ㅛ", "ㅕ", " ㅑ", "ㅐ", "ㅔ"];
-const pressed = ["ㅃ", "ㅉ", "ㄸ", "ㄲ", "ㅆ", "ㅛ", "ㅕ", "ㅑ", "ㅒ", "ㅖ"];
+const nomal = ['ㅂ', 'ㅈ', 'ㄷ', 'ㄱ', 'ㅅ', 'ㅛ', 'ㅕ', ' ㅑ', 'ㅐ', 'ㅔ'];
+const pressed = ['ㅃ', 'ㅉ', 'ㄸ', 'ㄲ', 'ㅆ', 'ㅛ', 'ㅕ', 'ㅑ', 'ㅒ', 'ㅖ'];
