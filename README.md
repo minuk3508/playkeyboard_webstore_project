@@ -94,18 +94,6 @@ function useFetchProductList(category) {
 
 export default useFetchProductList;
 ```
-- #### 데이터 초기값 설정을 위한 인터페이스 생성 <br/>
-```js
-const detailDataInterface = {
-  data: {
-    bannerEvent: String,
-    bannerImageUrl: String,
-    brandAction: String,
-    brandDescription: String,
-    ...
-    
-    };
-```
 <br/>
 
 #### 반응형 레이아웃이 정상적으로 작동<br/>
