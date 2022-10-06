@@ -51,6 +51,9 @@ const PageBackWrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 3rem;
+  @media screen and (width: 540px) {
+    height: 5rem;
+  }
 `;
 
 const BackBtn = styled.div`
