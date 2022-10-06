@@ -146,13 +146,13 @@ const Container = styled.div`
 ## ⚙ 프로젝트 관리 및 설계와 관련된 사항들
 <br/>
 
-- ### 1일 1미팅 [미팅내용보기!]()
+- ### Meeting Log [내용보기!]()
 <br/>
-- 
 
-
-
-- #### 작은 프로젝트라도 철저한 프로젝트 설계
+- ### Task [내용보기!]()
 <br/>
--
+
+- ### Design pattern(Atomic Design) [내용보기!]()
+<br/>
+
 
