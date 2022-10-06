@@ -60,6 +60,7 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
   color: ${({ theme }) => theme.colors.black};
   -ms-overflow-style: none;
+  cursor: default;
 }
 a {
   text-decoration:none;

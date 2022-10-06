@@ -28,8 +28,9 @@ export default function ThemeList(data) {
 }
 
 const ThemeWrap = styled.div`
-  width: 55%;
+  width: 80%;
   height: 100%;
+
   @media ${theme.device.tabletL} {
     width: 80%;
     height: 100%;
@@ -40,7 +41,18 @@ const ThemeWrap = styled.div`
   }
 `;
 const ThemeListWrap = styled.ul`
+  @media ${theme.device.tabletL} {
+    width: auto;
+    height: auto;
+  }
+  @media ${theme.device.tablet} {
+    width: auto;
+    height: auto;
+  }
   margin: 10px;
+  height: 39rem;
+  overflow: hidden;
+  overflow-y: auto;
 `;
 const Theme = styled.li`
   display: inline-block;

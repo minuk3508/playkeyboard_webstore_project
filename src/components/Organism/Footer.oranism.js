@@ -4,7 +4,6 @@ import store from "../../images/store.png";
 import charging from "../../images/charging.png";
 import heart from "../../images/heart.png";
 import settings from "../../images/settings.png";
-import theme from "../../theme";
 
 function Footer() {
   const FooterData = [
@@ -39,7 +38,7 @@ const FooterBox = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 1200px;
-  @media ${theme.device.tabletL} {
+  @media ${({ theme }) => theme.device.tabletL} {
     width: 500px;
   }
 `;
