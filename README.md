@@ -22,7 +22,7 @@
 - 진행기간 : 10/04 ~ 10/07
 - 과제주관 : (주)비트바이트
 - 참여명단 : 김민욱, 소재현, 손소희, 유광현, 정훈조, 조민재
-- DEMO : "link"
+- DEMO : [DEMO](https://extraordinary-basbousa-068052.netlify.app/)
 
 <br/>
 <br/>
