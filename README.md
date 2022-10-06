@@ -1,3 +1,6 @@
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black"/> 
+<img src="https://img.shields.io/badge/styled components-DB7093?style=flat-square&logo=styled-components&logoColor=white"/>
+
 # Playkeyboard Webstore Project
 ## 🔍 미리보기
 >Main 
