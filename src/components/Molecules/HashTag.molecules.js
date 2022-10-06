@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 function HashTags({ length, hashTags }) {
   const sortedHashTags = hashTags.sort((a, b) => {
@@ -14,17 +14,17 @@ function HashTags({ length, hashTags }) {
     <Wrapper>
       {length < 3
         ? sortedHashTags.map((el, idx) => (
-            <HashTag key={idx + ''}>{'#' + el}</HashTag>
+            <HashTag key={idx + ""}>{"#" + el}</HashTag>
           ))
         : sortedHashTags
             .slice(0, 2)
             .map((el, idx) =>
               idx === 1 ? (
-                <HashTag key={idx + ''}>
-                  {'#' + el + ` 외 ${length - 2}개`}
+                <HashTag key={idx + ""}>
+                  {"#" + el + ` 외 ${length - 2}개`}
                 </HashTag>
               ) : (
-                <HashTag key={idx + ''}>{'#' + el}</HashTag>
+                <HashTag key={idx + ""}>{"#" + el}</HashTag>
               )
             )}
     </Wrapper>

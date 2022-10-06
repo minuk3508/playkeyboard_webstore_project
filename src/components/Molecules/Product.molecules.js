@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import HashTags from '../Products/hashTag.products';
-import download from '../../images/arrow_down.png';
-import diamond from '../../images/diamond.png';
-import theme from '../../theme';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import HashTags from "./HashTag.molecules";
+import download from "../../images/arrow_down.png";
+import diamond from "../../images/diamond.png";
+import theme from "../../theme";
 
 function Product({ keyboard }) {
   return (
@@ -50,7 +50,6 @@ const KeyboardWrapper = styled.div`
     padding: 0 8px;
   }
 `;
-
 const KeyboardImg = styled.img`
   width: 100%;
   border-radius: 8px;
