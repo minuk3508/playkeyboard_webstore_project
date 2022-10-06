@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import arrow_left from "images/arrow_left.png";
 
-const Keyboard = ({ isModal }) => {
+const Keyboard = ({ state, isModal }) => {
   const [value, setValue] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
   const [isShift, setIsShift] = useState(false);
   const [collection, setCollection] = useState(COLLECTION_DATA);
   const Hangul = require("hangul-js");
@@ -34,6 +35,22 @@ const Keyboard = ({ isModal }) => {
     setValue([]);
   };
 
+  useEffect(() => {
+    const CheckState = () => {
+      if (state) {
+        setIsOpen(true);
+      } else {
+        setTimeout(() => setIsOpen(false), 500);
+      }
+    };
+    CheckState();
+    return () => {
+      clearTimeout(CheckState);
+    };
+  }, [state]);
+
+  if (!isOpen) return null;
+
   const handleShift = () => {
     setIsShift(() => !isShift);
     let newCollection = [...collection];
@@ -47,7 +64,7 @@ const Keyboard = ({ isModal }) => {
 
   return (
     <Overlay>
-      <Wapper>
+      <Wapper toggle={state ? "fadeIn" : "fadeOut"}>
         <TestWapper>
           <TestBox>
             <input
@@ -92,17 +109,6 @@ const Overlay = styled.div`
   z-index: 999;
 `;
 
-const In = keyframes`
-  0% {
-    opacity: 0;
-    transform: translate3d(0,100%,0);
-  }
-  100% {
-    opacity: 1;
-    transform: translateZ(0);
-  }
-`;
-
 const Wapper = styled.div`
   display: flex;
   justify-content: center;
@@ -113,7 +119,29 @@ const Wapper = styled.div`
   width: 100%;
   bottom: 0;
 
-  animation: ${In} 0.9s;
+  animation: ${(props) => props.toggle} 0.9s;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+    to {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+  }
 `;
 
 const TestWapper = styled.div`
@@ -147,7 +175,6 @@ const TestBox = styled.div`
 const BackArrow = styled.div`
   position: absolute;
   left: -35px;
-
   cursor: pointer;
 `;
 
@@ -155,6 +182,7 @@ const AllDeleteX = styled.div`
   position: absolute;
   right: -25px;
   font-size: 18px;
+  cursor: pointer;
 `;
 
 const KeyWapper = styled.div`
@@ -178,20 +206,19 @@ const KeyLi = styled.li`
   padding: 10px;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.colors.white};
-  /* color: rgba(0, 0, 0, 0.4); */
+  color: ${({ theme }) => theme.colors.gray};
+
+  font-size: 19px;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    font-size: 17px;
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 11px;
+  }
 
   cursor: pointer;
-
-  font-weight: 600;
-  font-size: 20px;
-
-  @media (max-width: 767px) {
-    font-size: 16px;
-  }
-
-  @media (max-width: 449px) {
-    font-size: 13px;
-  }
 `;
 
 const COLLECTION_DATA = [

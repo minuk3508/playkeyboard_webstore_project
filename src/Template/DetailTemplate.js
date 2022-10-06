@@ -22,7 +22,7 @@ function DetailTemplate({
         </MiddleWrapper>
       </ResposiveWrapper>
       <BottomWrapper>{bottomSectionComponet}</BottomWrapper>
-      {modalValue && modalComponent}
+      {modalComponent}
     </Container>
   );
 }

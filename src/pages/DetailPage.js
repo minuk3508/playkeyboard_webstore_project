@@ -101,7 +101,7 @@ function DetailPage() {
       }
       middleSectionComponent={<ThemeList data={data} />}
       bottomSectionComponet={<BottomSection />}
-      modalComponent={<Keyboard isModal={modalToggleFuntion} />}
+      modalComponent={<Keyboard state={isModal} isModal={modalToggleFuntion} />}
       modalValue={isModal}
     />
   );
