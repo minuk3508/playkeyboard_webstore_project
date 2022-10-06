@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 function useFetchCategoryData() {
   const [categoryData, setCategoryData] = useState([]);
   useEffect(() => {
-    fetch('https://api.plkey.app/theme/category', {
-      method: 'GET',
+    fetch("https://api.plkey.app/theme/category", {
+      method: "GET",
     })
       .then((res) => res.json())
       .then((data) => {

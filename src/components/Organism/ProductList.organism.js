@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import useFetchProductList from '../../APIhooks/useFetchProductList.hook';
-import Product from '../Molecules/Product.molecules';
-import theme from '../../theme';
+import React, { useState } from "react";
+import styled from "styled-components";
+import useFetchProductList from "../../APIhooks/useFetchProductList.hook";
+import Product from "../Molecules/Product.molecules";
+import theme from "../../theme";
 
-function ProductList({ selectedCategory }) {
-  const { data } = useFetchProductList(selectedCategory);
+function ProductList({ page, setPage, category }) {
+  const { data } = useFetchProductList(category);
 
   const limit = 10;
-  const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
   const totalProductQty = data?.length;
   const pagesNum = Math.ceil(totalProductQty / limit);
@@ -26,7 +25,7 @@ function ProductList({ selectedCategory }) {
               onClick={() => {
                 setPage(i + 1);
               }}
-              aria-current={page === i + 1 ? 'page' : null}
+              aria-current={page === i + 1 ? "page" : null}
             >
               {i + 1}
             </button>

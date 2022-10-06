@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const PreferenceMockData = [
@@ -7,9 +6,9 @@ const PreferenceMockData = [
   { emoji: "😉", coment: "응원해요", count: 0 },
   { emoji: "🤣", coment: "갖고싶어요", count: 0 },
 ];
-function BottomSection() {
-  const [boxShadowValue, setBoxShadowValue] = useState("0px 0px 6px");
 
+function BottomSection() {
+  const boxShadowValue = "0px 0px 6px";
   return (
     <>
       <UserPreferenceWrapper>
