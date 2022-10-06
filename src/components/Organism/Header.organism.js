@@ -7,13 +7,16 @@ import charging from "../../images/charging.png";
 import heart from "../../images/heart.png";
 import settings from "../../images/settings.png";
 import theme from "../../theme";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
+  const goHome = () => navigate("/");
   return (
     <Container>
       <HeaderBox>
         <LogoBox>
-          <img src={playKeyboardLogo} alt="playKeyboardLogo" />
+          <img src={playKeyboardLogo} alt="playKeyboardLogo" onClick={goHome} />
         </LogoBox>
         <SearchBox>
           <div>
