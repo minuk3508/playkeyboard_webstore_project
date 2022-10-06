@@ -46,21 +46,6 @@ const ProductDetailTop = ({ data, isModal }) => {
     </>
   );
 };
-<<<<<<< HEAD:src/components/ProductDetailTop/ProductDetailTop.js
-const TopWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  max-width: 720px;
-  height: 67%;
-  min-height: 67vh;
-  padding: 2% 1%;
-`;
-=======
-
->>>>>>> 0a62c1e5c578a285f43c953f304acb37c9293bc7:src/components/Organism/DetailTopSection.organism.js
 const PageBackWrapper = styled.div`
   display: flex;
   align-items: center;
