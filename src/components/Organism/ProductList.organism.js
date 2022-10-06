@@ -3,6 +3,7 @@ import styled from "styled-components";
 import useFetchProductList from "../../APIhooks/useFetchProductList.hook";
 import Product from "../Molecules/Product.molecules";
 import theme from "../../theme";
+import Pagination from "components/Molecules/Pagination.molecules";
 
 function ProductList({ page, setPage, category }) {
   const { data } = useFetchProductList(category);
@@ -18,7 +19,7 @@ function ProductList({ page, setPage, category }) {
         {data?.slice(offset, offset + limit).map((el) => (
           <Product key={el._id} keyboard={el} />
         ))}
-        <PageNationBox>
+        {/* <PageNationBox>
           {Array.from({ length: pagesNum }, (v, i) => (
             <button
               key={i}
@@ -30,7 +31,8 @@ function ProductList({ page, setPage, category }) {
               {i + 1}
             </button>
           ))}
-        </PageNationBox>
+        </PageNationBox> */}
+        <Pagination totalPage={pagesNum} page={page} setPage={setPage} />
       </Container>
     </>
   );
