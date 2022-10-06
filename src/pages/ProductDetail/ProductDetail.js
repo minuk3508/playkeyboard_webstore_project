@@ -75,11 +75,9 @@ const detailDataInterface = {
 
 function ProductDetail() {
   const [data, setData] = useState(detailDataInterface);
-  const [modalToggle, setModalToggle] = useState(false);
+  const [isModal, setIsModal] = useState(false);
   const mockParams = { id: "6" };
   const { id } = mockParams;
-
-  const handleToggle = () => setModalToggle((prev) => !prev);
 
   useEffect(() => {
     (async () => {
@@ -92,7 +90,7 @@ function ProductDetail() {
 
   return (
     <Container>
-      <ProductDetailTop data={data} handleToggle={handleToggle} />
+      <ProductDetailTop data={data} isModal={() => setIsModal(!isModal)} />
       {data.figure && (
         <MiddleWrapper>
           <ThemeList data={data} />
@@ -101,7 +99,7 @@ function ProductDetail() {
       <BottomWrapper>
         <BottomSection />
       </BottomWrapper>
-      <Keyboard modalToggle={modalToggle} handleToggle={handleToggle} />
+      {isModal && <Keyboard isModal={() => setIsModal(!isModal)} />}
     </Container>
   );
 }
