@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const ProductDetailTop = ({ data }) => {
+const ProductDetailTop = ({ data, isModal }) => {
   const navigate = useNavigate();
 
   function goBack() {
@@ -10,7 +10,7 @@ const ProductDetailTop = ({ data }) => {
   }
 
   return (
-    <TopWrapper>
+    <>
       <PageBackWrapper>
         <BackBtn onClick={goBack}>
           <BackBtnImg alt="뒤로가기" src="/images/ic_all_back.png" />
@@ -18,7 +18,7 @@ const ProductDetailTop = ({ data }) => {
       </PageBackWrapper>
       <ItemImageScreenWrapper>
         <ItemImgBox>
-          <ItemImg alt="키보드이미지" src={data.imageUrl} />
+          <ItemImg alt="키보드이미지" src={data.imageUrl} onClick={isModal} />
         </ItemImgBox>
       </ItemImageScreenWrapper>
       <ItemNameWrapper>
@@ -43,9 +43,10 @@ const ProductDetailTop = ({ data }) => {
           })}
       </TagButttonWrapper>
       <ADSpaceWrapper>AD</ADSpaceWrapper>
-    </TopWrapper>
+    </>
   );
 };
+<<<<<<< HEAD:src/components/ProductDetailTop/ProductDetailTop.js
 const TopWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -57,6 +58,9 @@ const TopWrapper = styled.div`
   min-height: 67vh;
   padding: 2% 1%;
 `;
+=======
+
+>>>>>>> 0a62c1e5c578a285f43c953f304acb37c9293bc7:src/components/Organism/DetailTopSection.organism.js
 const PageBackWrapper = styled.div`
   display: flex;
   align-items: center;

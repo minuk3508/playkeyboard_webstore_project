@@ -1,5 +1,5 @@
 import React from "react";
-import Router from "./pages/Router";
+import Router from "./Router";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -60,6 +60,7 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
   color: ${({ theme }) => theme.colors.black};
   -ms-overflow-style: none;
+  cursor: default;
 }
 a {
   text-decoration:none;
