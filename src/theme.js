@@ -17,6 +17,7 @@ const colors = {
   blue: "#7dc9fc",
 };
 const device = {
+  mobileS: `only screen and (max-width: 290px)`,
   mobile: `only screen and (max-width: 450px)`,
   tablet: `only screen and (max-width: 768px)`,
   tabletL: `only screen and (max-width: 1024px)`,

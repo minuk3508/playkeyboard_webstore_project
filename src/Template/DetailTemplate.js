@@ -8,12 +8,14 @@ function DetailTemplate({
   bottomSectionComponet,
   modalComponent,
   modalValue,
+  figureData,
 }) {
   return (
     <Container>
       <HeaderContainer>{headerComponent}</HeaderContainer>
       <ResposiveWrapper>
         <TopWrapper>{topSectionComponent}</TopWrapper>
+
         <MiddleWrapper>
           <MiddleEmptyBox />
           {middleSectionComponent}
@@ -26,6 +28,27 @@ function DetailTemplate({
 }
 
 export default DetailTemplate;
+
+const Container = styled.div`
+  @media ${({ theme }) => theme.device.tabletL} {
+    padding-top: 10%;
+  }
+  @media ${({ theme }) => theme.device.mobile} {
+    padding-top: 20%;
+  }
+  @media ${({ theme }) => theme.device.mobileS} {
+    padding-top: 26%;
+  }
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  width: 100vw;
+  padding-top: 10%;
+  height: auto;
+  min-height: 100vh;
+`;
 const HeaderContainer = styled.div`
   @media ${({ theme }) => theme.device.tabletL} {
     height: 5.7rem;
@@ -44,44 +67,28 @@ const ResposiveWrapper = styled.div`
   @media ${({ theme }) => theme.device.tabletL} {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     width: 100vw;
     height: auto;
-    min-height: 100vh;
+    min-height: auto;
   }
   display: flex;
   justify-content: center;
   width: auto;
   height: auto;
 `;
-const Container = styled.div`
-  @media ${({ theme }) => theme.device.tabletL} {
-    padding-top: 10%;
-  }
-  @media ${({ theme }) => theme.device.mobile} {
-    padding-top: 20%;
-  }
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-  width: 100vw;
-  padding-top: 10%;
-  height: auto;
-  min-height: 100vh;
-`;
 const TopWrapper = styled.div`
   @media ${({ theme }) => theme.device.tabletL} {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
     max-width: 720px;
-    height: 67%;
-    min-height: 67vh;
-    padding: 2% 1%;
+    height: auto;
+    min-height: auto;
+    padding: 2% 5%;
   }
   display: flex;
   flex-direction: column;
@@ -99,7 +106,8 @@ const MiddleWrapper = styled.div`
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 100%;
+    height: auto;
+    min-height: auto;
   }
   display: flex;
   flex-direction: column;

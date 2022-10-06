@@ -6,7 +6,6 @@ import theme from "../../theme";
 
 function ProductList({ category }) {
   const { data } = useFetchProductList(category);
-
   const limit = 10;
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
