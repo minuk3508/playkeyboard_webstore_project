@@ -1,14 +1,15 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import HashTags from "./HashTag.molecules";
-import download from "../../images/arrow_down.png";
-import diamond from "../../images/diamond.png";
-import theme from "../../theme";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import HashTags from './HashTag.molecules';
+import download from '../../images/arrow_down.png';
+import diamond from '../../images/diamond.png';
+import theme from '../../theme';
 
 function Product({ keyboard }) {
+  const id = keyboard._id;
   return (
     <KeyboardWrapper>
-      <Link to={`/productdetail/${keyboard._id}`}>
+      <Link to={`/productdetail/${id}`}>
         <KeyboardImg src={keyboard.imageUrl} alt="play keyboard's screenshot" />
         <KeyboardName>{keyboard.name}</KeyboardName>
         <HashTags
