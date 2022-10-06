@@ -1,12 +1,12 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 const ProductDetailTop = ({ data, isModal }) => {
   const navigate = useNavigate();
 
   function goBack() {
-    navigate("/");
+    navigate(-1);
   }
 
   return (
