@@ -1,19 +1,17 @@
-import styled, { css } from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import styled, { css } from "styled-components";
 
-function CategoryTap({ data, selectedCategory }) {
-  const navigate = useNavigate();
-
+function CategoryTap({ data, category, setQuery, setPage }) {
   return (
     <CategoryBox>
       <ul>
         {data?.slice(1).map((el, index) => {
           return (
             <Category
-              selected={selectedCategory === el}
+              selected={category === el}
               key={index}
               onClick={() => {
-                navigate(`/?category=${el}`);
+                setQuery({ category: el });
+                setPage(1);
               }}
             >
               {el}

@@ -1,6 +1,6 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 const ProductDetailTop = ({ data, isModal }) => {
   const navigate = useNavigate();
@@ -18,22 +18,22 @@ const ProductDetailTop = ({ data, isModal }) => {
       </PageBackWrapper>
       <ItemImageScreenWrapper>
         <ItemImgBox>
-          <ItemImg alt="키보드이미지" src={data.imageUrl} onClick={isModal} />
+          <ItemImg alt="키보드이미지" src={data?.imageUrl} onClick={isModal} />
         </ItemImgBox>
       </ItemImageScreenWrapper>
       <ItemNameWrapper>
         <ItemNameBox>
-          <ItemName>{data.name}</ItemName>
+          <ItemName>{data?.name}</ItemName>
           <ShareImgBox>
             <ShareImg alt="공유" src="/images/ic_all_share.png"></ShareImg>
           </ShareImgBox>
         </ItemNameBox>
         <ItemCreatorBox>
-          <ItemCreator>{data.creator}</ItemCreator>
+          <ItemCreator>{data?.creator}</ItemCreator>
         </ItemCreatorBox>
       </ItemNameWrapper>
       <TagButttonWrapper>
-        {data.hashtag &&
+        {data?.hashtag &&
           data.hashtag.map((el, i) => {
             return (
               <HashtagBox key={i}>
