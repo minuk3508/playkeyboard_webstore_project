@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import useFetchCategoryData from "../APIhooks/useFetchCategoryData.hook";
 import MainTopDescription from "components/Atoms/MainTopDescription.atom";
 import Header from "components/Organism/Header.organism";

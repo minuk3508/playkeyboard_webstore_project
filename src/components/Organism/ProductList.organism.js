@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import useFetchProductList from "../../APIhooks/useFetchProductList.hook";
 import Product from "../Molecules/Product.molecules";
