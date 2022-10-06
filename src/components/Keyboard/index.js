@@ -1,13 +1,11 @@
-import { useState, useEffect } from "react";
-import styled from "styled-components";
+import { useState } from "react";
+import styled, { keyframes } from "styled-components";
 import arrow_left from "images/arrow_left.png";
 
-const Keyboard = ({ modalToggle, handleToggle }) => {
+const Keyboard = ({ isModal }) => {
   const [value, setValue] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
   const [isShift, setIsShift] = useState(false);
   const [collection, setCollection] = useState(COLLECTION_DATA);
-
   const Hangul = require("hangul-js");
 
   const handleClick = (event) => {
@@ -47,25 +45,9 @@ const Keyboard = ({ modalToggle, handleToggle }) => {
     return setCollection(newCollection);
   };
 
-  useEffect(() => {
-    const CheckState = () => {
-      if (modalToggle) {
-        setIsOpen(true);
-      } else {
-        setTimeout(() => setIsOpen(false), 500);
-      }
-    };
-    CheckState();
-    return () => {
-      clearTimeout(CheckState);
-    };
-  }, [modalToggle]);
-
-  if (!isOpen) return null;
-
   return (
     <Overlay>
-      <Wapper toggle={modalToggle ? "fadeIn" : "fadeOut"}>
+      <Wapper>
         <TestWapper>
           <TestBox>
             <input
@@ -73,7 +55,7 @@ const Keyboard = ({ modalToggle, handleToggle }) => {
               defaultValue={Hangul.assemble(value)}
               placeholder="마음껏 테스트 해보세요"
             />
-            <BackArrow onClick={handleToggle}>
+            <BackArrow onClick={isModal}>
               <img src={arrow_left} alt="playKeyboardLogo" />
             </BackArrow>
             <AllDeleteX onClick={handleAllDelete}>✕</AllDeleteX>
@@ -110,6 +92,17 @@ const Overlay = styled.div`
   z-index: 999;
 `;
 
+const In = keyframes`
+  0% {
+    opacity: 0;
+    transform: translate3d(0,100%,0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+`;
+
 const Wapper = styled.div`
   display: flex;
   justify-content: center;
@@ -120,29 +113,7 @@ const Wapper = styled.div`
   width: 100%;
   bottom: 0;
 
-  animation: ${(props) => props.toggle} 0.9s;
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translate3d(0, 100%, 0);
-    }
-    to {
-      opacity: 1;
-      transform: translateZ(0);
-    }
-  }
-
-  @keyframes fadeOut {
-    0% {
-      opacity: 1;
-      transform: translateZ(0);
-    }
-    to {
-      opacity: 0;
-      transform: translate3d(0, 100%, 0);
-    }
-  }
+  animation: ${In} 0.9s;
 `;
 
 const TestWapper = styled.div`

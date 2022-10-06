@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const ProductDetailTop = ({ data, handleToggle }) => {
+const ProductDetailTop = ({ data, isModal }) => {
   const navigate = useNavigate();
 
   function goBack() {
@@ -18,11 +18,7 @@ const ProductDetailTop = ({ data, handleToggle }) => {
       </PageBackWrapper>
       <ItemImageScreenWrapper>
         <ItemImgBox>
-          <ItemImg
-            alt="키보드이미지"
-            src={data.imageUrl}
-            onClick={handleToggle}
-          />
+          <ItemImg alt="키보드이미지" src={data.imageUrl} onClick={isModal} />
         </ItemImgBox>
       </ItemImageScreenWrapper>
       <ItemNameWrapper>
