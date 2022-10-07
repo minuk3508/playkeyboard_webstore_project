@@ -171,8 +171,8 @@ const Wapper = styled.div`
 
 <br/>
 
-- ##### 📍Meeting Log [내용보기!]()
+- ##### 📍Meeting Log [내용보기!](https://www.notion.so/wecode/1-Meeting-Log-3e78770757bd4b1980c38dd7cd5b85d0)
 
-- ##### 📍Task [내용보기!]()
+- ##### 📍Task [내용보기!](https://www.notion.so/wecode/1-Task-0929fa9d611343d1b74757c36ceb0aca)
 
-- ##### 📍Conventions [내용보기!]()
+- ##### 📍Conventions [내용보기!](https://www.notion.so/wecode/Team-Conventions-6dc83f662105424a860339fadc72066f)
