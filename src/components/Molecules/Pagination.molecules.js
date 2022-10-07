@@ -1,7 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 function Pagination({ totalPage, page, setPage }) {
-  console.log(page);
   let start;
   const divide = page / 10;
   const extra = page % 10;
@@ -18,13 +17,13 @@ function Pagination({ totalPage, page, setPage }) {
   const pages = [];
   if (start !== 1) {
     pages.push({ pageNum: 1, pageVal: 1 });
-    pages.push({ pageNum: start - 1, pageVal: "..." });
+    pages.push({ pageNum: start - 1, pageVal: '...' });
   }
   for (let i = start; i <= end; i++) {
     pages.push({ pageNum: i, pageVal: i });
   }
   if (end !== totalPage) {
-    pages.push({ pageNum: end + 1, pageVal: "..." });
+    pages.push({ pageNum: end + 1, pageVal: '...' });
     pages.push({ pageNum: totalPage, pageVal: totalPage });
   }
 
@@ -40,7 +39,7 @@ function Pagination({ totalPage, page, setPage }) {
       <Prev onClick={prev} show={page !== 1}>
         이전
       </Prev>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: 'flex' }}>
         {pages.map((el) => (
           <Pagebox
             key={el.pageVal}
@@ -62,8 +61,8 @@ function Pagination({ totalPage, page, setPage }) {
 
 const Pagebox = styled.button`
   background-color: ${(props) =>
-    props.active ? props.theme.colors.hotPink : "white"};
-  color: ${(props) => (props.active ? "white" : "black")};
+    props.active ? props.theme.colors.hotPink : 'white'};
+  color: ${(props) => (props.active ? 'white' : 'black')};
   min-width: 30px;
   padding: 7px 0px;
   width: 100%;
@@ -77,6 +76,16 @@ const Pagebox = styled.button`
   margin-right: 10px;
   &:last-child {
     margin-right: 0px;
+  }
+  @media ${({ theme }) => theme.device.mobile} {
+    min-width: 20px;
+    margin-right: 2px;
+    font-size: 10px;
+    padding: 4px 0px;
+  }
+  @media ${({ theme }) => theme.device.mobileS} {
+    min-width: 15px;
+    padding: 2px 0px;
   }
 `;
 const Wrapper = styled.div`
@@ -96,12 +105,23 @@ const Prev = styled.button`
     cursor: pointer;
     border: 1px solid #ff1c7c;
   }
-  opacity: ${(props) => (props.show ? "1" : "0")};
-  pointer-events: ${(props) => (props.show ? "auto" : "none")};
+  opacity: ${(props) => (props.show ? '1' : '0')};
+  pointer-events: ${(props) => (props.show ? 'auto' : 'none')};
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 8px;
+    min-height: 25px;
+    width: 34px;
+    margin: 0 5px;
+  }
+  @media ${({ theme }) => theme.device.mobileS} {
+    min-height: 20px;
+    width: 32px;
+    margin: 0px 1px;
+  }
 `;
 const Next = styled(Prev)`
-  opacity: ${(props) => (props.show ? "1" : "0")};
-  pointer-events: ${(props) => (props.show ? "auto" : "none")};
+  opacity: ${(props) => (props.show ? '1' : '0')};
+  pointer-events: ${(props) => (props.show ? 'auto' : 'none')};
 `;
 
 export default Pagination;
